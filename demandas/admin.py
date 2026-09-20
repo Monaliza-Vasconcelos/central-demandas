@@ -9,4 +9,22 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 @admin.register(Demanda)
 class DemandaAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+        'id',
+        'cliente',
+        'categoria',
+        'solicitante',
+        'setor',
+        'status',
+        'data_hora',
+    )
+    list_filter = (
+        'status',
+        'categoria',
+        'setor',
+    )
+
+    search_fields = (
+        'cliente',
+        'telefone',
+    )
