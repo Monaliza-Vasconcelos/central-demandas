@@ -1,0 +1,37 @@
+:root {
+    /* Identidade */
+    --cor-primaria: #1677f2;
+    --cor-primaria-hover: #0f63d8;
+    --cor-secundaria: #102a4c;
+    --cor-secundaria-escura: #0b1f3a;
+
+    /* Fundos */
+    --cor-fundo: #f5f8fc;
+    --cor-fundo-secundario: #eef4fa;
+    --cor-card: #ffffff;
+
+    /* Textos */
+    --cor-texto: #142b4a;
+    --cor-texto-secundario: #6b7f99;
+    --cor-texto-claro: #ffffff;
+
+    /* Bordas */
+    --cor-borda: #d8e2ee;
+
+    /* Status */
+    --cor-sucesso: #16a66a;
+    --cor-sucesso-fundo: #dff7eb;
+
+    --cor-alerta: #e9a21b;
+    --cor-alerta-fundo: #fff1cf;
+
+    --cor-erro: #d64545;
+    --cor-erro-fundo: #fde5e5;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}

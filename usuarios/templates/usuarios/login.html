@@ -1,21 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'usuarios/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
+    
 </head>
+
 <body>
-    <h1>Central de Demandas Internas</h1>
+    <main class="login-container">
 
-    <h2>Login</h2>
+        <section class="login-apresentacao">
+            <h1>Central de Demandas Internas</h1>
+            <p> Gestão e acompanhamento das demandas internas </p>
+        </section>
 
-    <form method="post">
-        {% csrf_token %}
+        <section class="login-formulario">
+            <div class="login-card">
+                <h2>Login</h2>
+                {% if form.errors %}
+                    <div class="login-erro">
+                        Usuário ou senha inválidos.
+                    </div>
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                     <p>
+                        <label for="{{ form.username.id_for_label }}">Usuário</label>
+                        {{ form.username }}
+                    </p>
 
-        {{ form.as_p }}
+                    <p>
+                        <label for="{{ form.password.id_for_label }}">Senha</label>
+                        {{ form.password }}
+                    </p>
+                    <button class="login-card button" type="submit">Entrar</button>
+                </form>
+            </div>
+        </section>
 
-        <button type="submit">Entrar</button>
-    </form>
+    </main>
 </body>
 </html>

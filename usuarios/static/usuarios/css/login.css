@@ -1,0 +1,137 @@
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    
+    
+}
+
+.login-apresentacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 60px;
+    color: var(--cor-texto-claro);
+    background-color: var(--cor-secundaria);
+    
+}
+
+.login-apresentacao h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+
+.login-apresentacao p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.login-formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: var(--cor-fundo);
+}
+
+.login-card {
+    width: 350px;
+    padding: 40px;
+    background-color: var(--cor-card);
+
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    cursor: pointer;
+}
+
+.login-card button:hover{
+    background-color: var(--cor-primaria-hover);
+    color: var(--cor-texto);
+}
+
+.login-card input:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 119, 242, 0.12);
+}
+
+.login-erro {
+    background-color: var(--cor-erro-fundo);
+    color: var(--cor-erro);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.login-card form p {
+    margin: 0 0 20px 0;
+}
+
+.login-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+@media (max-width: 768px) {
+
+    .login-container {
+        flex-direction: column;
+    }
+
+    .login-apresentacao,
+    .login-formulario {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .login-apresentacao {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .login-apresentacao h1 {
+        font-size: 28px;
+        margin-top: 0;
+    }
+
+    .login-apresentacao p {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+    .login-formulario {
+        padding: 20px;
+        flex: 1;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 350px;
+        box-sizing: border-box;
+    }
+}
