@@ -16,6 +16,11 @@ class Demanda(models.Model):
         ('RESOLVIDO', 'Resolvido'),
     ]
 
+    FLUXO_CHOICES = [
+        ('SUPORTE','Suporte'),
+        ('SOLICITANTE','Solicitante')
+        ]
+
     cliente = models.CharField(max_length=100)
     telefone = models.CharField(max_length=100)
 
@@ -43,5 +48,38 @@ class Demanda(models.Model):
         default='PENDENTE'
     )
 
+    fluxo = models.CharField(
+        max_length=20,
+        choices=FLUXO_CHOICES,
+        default='SUPORTE',
+        null=True
+    )
+
+    def resolver(self):
+        self.status = 'RESOLVIDO'
+        self.fluxo = None
+        self.save()
+    
     def __str__(self):
         return f'{self.id} - {self.cliente}'
+
+
+class Interacao(models.Model):
+    demanda = models.ForeignKey(
+        Demanda,
+        on_delete=models.PROTECT
+    )
+
+    autor = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT
+    )
+
+    mensagem = models.TextField()
+
+    data_hora = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return f'{self.id} - {self.demanda.cliente}'

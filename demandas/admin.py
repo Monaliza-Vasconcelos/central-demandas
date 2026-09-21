@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, Demanda
+from .models import Categoria, Demanda, Interacao
 
 # Register your models here.
 
@@ -17,6 +17,7 @@ class DemandaAdmin(admin.ModelAdmin):
         'setor',
         'status',
         'data_hora',
+        'fluxo',
     )
     list_filter = (
         'status',
@@ -28,3 +29,13 @@ class DemandaAdmin(admin.ModelAdmin):
         'cliente',
         'telefone',
     )
+
+    list_display_links = (
+        'id',
+        'cliente',
+    )
+
+
+@admin.register(Interacao)
+class InteracaoAdmin(admin.ModelAdmin):
+    pass
