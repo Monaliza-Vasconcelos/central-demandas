@@ -56,8 +56,19 @@ class Demanda(models.Model):
     )
 
     def resolver(self):
+        if self.status != 'PENDENTE':
+            raise ValueError('Apenas demandas pendentes podem ser resolvidas.')
+
         self.status = 'RESOLVIDO'
         self.fluxo = None
+        self.save()
+    
+    def reabrir(self):
+        if self.status != 'RESOLVIDO':
+            raise ValueError('Apenas demandas resolvidas podem ser reabertas.')
+
+        self.status = 'PENDENTE'
+        self.fluxo = 'SUPORTE'
         self.save()
     
     def __str__(self):
