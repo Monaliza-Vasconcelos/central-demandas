@@ -20,6 +20,10 @@
                 <h2>Central de Demandas</h2>
                 <span>Gestão interna</span>
             </div>
+
+            <button type="button" class="fechar-menu" id="fechar-menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
         </div>
 
         <nav>
@@ -43,7 +47,7 @@
         </div>
     </aside>
 
-    <main>
+    <main class="conteudo-principal">
          <header class="cabecalho-sistema">
 
             <button class="botao-menu" id="botao-menu" type="button">
@@ -69,8 +73,10 @@
             </div>
 
         </header>
-        {% block conteudo %}
-        {% endblock %}
+         <div class="pagina-conteudo">
+            {% block conteudo %}
+            {% endblock %}
+        </div>
     </main>
     <script src="{% static 'usuarios/js/sistema.js' %}"></script>
 </body>
