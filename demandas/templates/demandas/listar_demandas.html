@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block  conteudo %}
+<h1>Demandas</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>CLIENTE</th>
+            <th>TELEFONE</th>
+            <th>CATEGORIA</th>
+            <th>STATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for demanda in demandas %}
+
+            <tr>
+                <td>{{ demanda.id }}</td>
+                <td>{{ demanda.cliente }}</td>
+                <td>{{ demanda.telefone }}</td>
+                <td>{{ demanda.categoria }}</td>
+                <td>{{ demanda.status }}</td>
+            </tr>
+            
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock  %}
