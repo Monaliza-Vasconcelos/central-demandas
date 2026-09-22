@@ -1,7 +1,6 @@
 const botaoMenu = document.querySelector('#botao-menu');
 const sidebar = document.querySelector('.sidebar');
 const fecharMenu = document.querySelector('#fechar-menu');
-
 const sidebarRecolhida = localStorage.getItem('sidebarRecolhida');
 
 if (sidebarRecolhida === 'true') {
@@ -26,3 +25,24 @@ botaoMenu.addEventListener('click', function () {
 fecharMenu.addEventListener('click', function () {
     sidebar.classList.remove('aberta');
 });
+
+
+
+const campoBusca = document.querySelector('input[name="busca"]');
+const formularioBusca = document.querySelector('.filtros-demandas');
+
+
+if (campoBusca && formularioBusca) {
+
+    campoBusca.addEventListener('input', function () {
+
+        console.log('Digitando:', campoBusca.value);
+
+        if (campoBusca.value.trim() === '') {
+            console.log('Campo vazio! Enviando formulário...');
+            formularioBusca.submit();
+        }
+
+    });
+
+}

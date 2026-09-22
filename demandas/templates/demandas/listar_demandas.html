@@ -1,6 +1,75 @@
 {% extends 'base.html' %}
 {% block  conteudo %}
-<h1>Demandas</h1>
+
+
+<div class="cabecalho-pagina">
+    <div>
+        <h1>Demandas</h1>
+        <p>Acompanhe e gerencie as demandas internas.</p>
+    </div>
+
+    <a href="#" class="botao-nova-demanda">
+        <i class="bi bi-plus-lg"></i>
+        Nova Demanda
+    </a>
+</div>
+
+<form method="get" class="filtros-demandas">
+
+    <!-- BUSCA -->
+    <div class="campo-busca">
+        <i class="bi bi-search"></i>
+
+        <input
+            type="text"
+            name="busca"
+            placeholder="Buscar por cliente ou telefone..."
+            value="{{ busca|default:'' }}"
+        >
+    </div>
+
+
+    <!-- CATEGORIA -->
+    <div class="select-filtro">
+        <select name="categoria" class="campo-filtro">
+            <option value="">Todas as categorias</option>
+
+            {% for categoria in categorias %}
+                <option
+                    value="{{ categoria.id }}"
+                    {% if categoria_selecionada == categoria.id|stringformat:"s" %}selected{% endif %}
+                >
+                    {{ categoria.nome }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+    <!-- STATUS -->
+    <div class="select-filtro">
+        <select name="status" class="campo-filtro">
+            <option value="">Todos os status</option>
+
+            {% for valor, nome in status_choices %}
+                <option
+                    value="{{ valor }}"
+                    {% if status_selecionado == valor %}selected{% endif %}
+                >
+                    {{ nome }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+    <!-- BOTÃO -->
+    <button type="submit" class="botao-buscar">
+        <i class="bi bi-funnel"></i>
+        Filtrar
+    </button>
+
+</form>
 
 <table class="tabela-demandas">
 
