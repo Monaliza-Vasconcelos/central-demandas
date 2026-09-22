@@ -2,7 +2,8 @@
 {% block  conteudo %}
 <h1>Demandas</h1>
 
-<table>
+<table class="tabela-demandas">
+
     <thead>
         <tr>
             <th>ID</th>
@@ -10,21 +11,86 @@
             <th>TELEFONE</th>
             <th>CATEGORIA</th>
             <th>STATUS</th>
+            <th>AÇÕES</th>
         </tr>
     </thead>
+
     <tbody>
+
         {% for demanda in demandas %}
 
             <tr>
                 <td>{{ demanda.id }}</td>
+
                 <td>{{ demanda.cliente }}</td>
+
                 <td>{{ demanda.telefone }}</td>
+
                 <td>{{ demanda.categoria }}</td>
-                <td>{{ demanda.status }}</td>
+
+                <td>
+                    <span class="status status-{{ demanda.status|lower }}">
+                        {{ demanda.get_status_display }}
+                    </span>
+                </td>
+
+                <td>
+                    <button type="button" class="botao-acoes-desktop">
+                        Ações
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                </td>
             </tr>
-            
 
         {% endfor %}
+
     </tbody>
+
 </table>
+<div class="lista-demandas-mobile">
+
+    {% for demanda in demandas %}
+
+        <div class="card-demanda">
+
+            <div class="card-demanda-topo">
+
+                <span>#{{ demanda.id }}</span>
+
+                <div class="acoes-card">
+
+                    <span class="status status-{{ demanda.status|lower }}">
+                        {{ demanda.get_status_display }}
+                    </span>
+
+                    <button type="button" class="botao-acoes-mobile">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <h3>{{ demanda.cliente }}</h3>
+
+            <p>
+                <i class="bi bi-telephone"></i>
+                {{ demanda.telefone }}
+            </p>
+
+            <p>
+                <i class="bi bi-tag"></i>
+                {{ demanda.categoria }}
+            </p>
+
+            <p>
+                <i class="bi bi-calendar3"></i>
+                {{ demanda.data_hora|date:"d/m/Y H:i" }}
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+</div>
 {% endblock  %}

@@ -3,9 +3,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--cor-texto);
     background-color: var(--cor-fundo);
-
     display: flex;
 }
+
+
+/* =========================
+   SIDEBAR
+========================= */
 
 .sidebar-logo {
     display: flex;
@@ -16,15 +20,65 @@ body {
 .sidebar-logo span {
     color: rgba(255, 255, 255, 0.65);
 }
+
 .sidebar-logo > i {
     font-size: 32px;
 }
+
+aside {
+    width: 250px;
+    min-height: 100vh;
+    background-color: var(--cor-secundaria);
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+aside a {
+    display: block;
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+aside a:hover {
+    background-color: var(--cor-primaria);
+}
+
+aside a.ativo {
+    background-color: var(--cor-primaria);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside li {
+    margin-bottom: 12px;
+}
+
+aside i {
+    margin-right: 10px;
+}
+
+aside nav {
+    margin-top: 24px;
+}
+
+
+/* =========================
+   SIDEBAR RECOLHIDA
+========================= */
 
 .sidebar.recolhida {
     width: 72px;
 }
 
-.sidebar.recolhida nav span {
+.sidebar.recolhida nav span,
+.sidebar.recolhida .menu-inferior span {
     display: none;
 }
 
@@ -38,12 +92,6 @@ body {
 .sidebar.recolhida i {
     margin-right: 0;
     font-size: 20px;
-}
-
-.sidebar.recolhida nav span,
-.sidebar.recolhida .menu-inferior span {
-    display: none;
-
 }
 
 .sidebar.recolhida .sidebar-logo > div {
@@ -66,53 +114,11 @@ body {
 }
 
 
-aside {
-    width: 250px;
-    min-height: 100vh;
-    background-color: var(--cor-secundaria);
-    padding: 24px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    
-}
+/* =========================
+   MENU INFERIOR
+========================= */
 
-aside a {
-    display: block;
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
-}
-
-aside a:hover {
-    background-color: var(--cor-primaria);
-}
-
-aside a.ativo {
-    background-color: var(--cor-primaria);
-}
-
-aside ul {
-    list-style: none;
-    padding: 0;
-    
-}
-
-aside li {
-    margin-bottom: 12px;
-}
-
-aside i {
-    margin-right: 10px;
-}
-
-aside nav {
-    margin-top: 50px;
-}
-
-
-.menu-inferior{
+.menu-inferior {
     margin-top: auto;
 }
 
@@ -133,16 +139,25 @@ aside nav {
 }
 
 
+/* =========================
+   CABEÇALHO
+========================= */
+
 .cabecalho-sistema {
     height: 64px;
     background-color: var(--cor-card);
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 24px;
     border-bottom: 1px solid var(--cor-borda);
     box-sizing: border-box;
+}
+
+.usuario-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .dados-usuario {
@@ -155,21 +170,13 @@ aside nav {
     font-size: 12px;
 }
 
-.usuario-cabecalho {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .avatar-usuario {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-color: var(--cor-secundaria);
     color: var(--cor-texto-claro);
 }
@@ -182,12 +189,16 @@ aside nav {
     cursor: pointer;
     padding: 8px;
     border-radius: 6px;
-    
 }
 
 .botao-menu:hover {
     background-color: var(--cor-fundo-secundario);
 }
+
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
 
 .conteudo-principal {
     flex: 1;
@@ -198,10 +209,155 @@ aside nav {
     padding: 24px;
 }
 
+
+/* =========================
+   BOTÃO FECHAR MENU MOBILE
+========================= */
+
 .fechar-menu {
     display: none;
 }
 
+
+/* =========================
+   TABELA DE DEMANDAS
+   DESKTOP
+========================= */
+
+.tabela-demandas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+}
+
+.tabela-demandas th,
+.tabela-demandas td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela-demandas th {
+    background-color: var(--cor-fundo-secundario);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+}
+
+.tabela-demandas td {
+    font-size: 14px;
+}
+
+.tabela-demandas tbody tr:hover {
+    background-color: var(--cor-fundo-secundario);
+}
+
+.tabela-demandas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-pendente {
+    color: var(--cor-alerta);
+    background-color: var(--cor-alerta-fundo);
+}
+
+.status-resolvido {
+    color: var(--cor-sucesso);
+    background-color: var(--cor-sucesso-fundo);
+}
+
+
+/* =========================
+   CARDS MOBILE
+   ESCONDIDOS NO DESKTOP
+========================= */
+
+.lista-demandas-mobile {
+    display: none;
+}
+
+.card-demanda-topo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-demanda {
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.botao-acoes-desktop {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 12px;
+
+    background-color: var(--cor-card);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.botao-acoes-desktop:hover {
+    background-color: var(--cor-fundo-secundario);
+}
+
+.acoes-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botao-acoes-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px;
+
+    background: none;
+    border: none;
+
+    color: var(--cor-texto-secundario);
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+/* Cards mobile ficam escondidos no desktop */
+.lista-demandas-mobile {
+    display: none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
 
@@ -210,11 +366,13 @@ aside nav {
         width: 100%;
     }
 
+
+    /* SIDEBAR MOBILE */
+
     .sidebar {
         position: fixed;
-
         top: 0;
-        left: -250px;
+        left: 0;
 
         width: 250px;
         height: 100vh;
@@ -223,12 +381,40 @@ aside nav {
 
         z-index: 1000;
 
-        transition: left 0.3s ease;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
     }
 
     .sidebar.aberta {
-        left: 0;
+        transform: translateX(0);
     }
+
+
+    /* X PARA FECHAR */
+
+    .sidebar-logo {
+        position: relative;
+    }
+
+    .fechar-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: -10px;
+        right: -10px;
+
+        background: none;
+        border: none;
+        color: white;
+
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+
+    /* CONTEÚDO */
 
     .conteudo-principal {
         width: 100%;
@@ -244,26 +430,24 @@ aside nav {
         padding: 20px;
         box-sizing: border-box;
     }
-    .fechar-menu {
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        position: absolute;
-        top: -10px;
-        right: -10px;
 
-        background: none;
-        border: none;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
+    /* TROCA TABELA → CARDS */
+
+    .tabela-demandas {
+    display: none;
     }
 
-    .sidebar-logo {
-        position: relative;
+    .lista-demandas-mobile {
+        display: grid;
+        gap: 16px;
     }
 }
+
+
+/* =========================
+   CELULARES MENORES
+========================= */
 
 @media (max-width: 400px) {
 
