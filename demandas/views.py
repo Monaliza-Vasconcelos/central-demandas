@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Demanda, Categoria
 from django.db.models import Q
+from .forms import DemandaForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -42,4 +44,43 @@ def lista_demandas(request):
             'status_selecionado': status,
             'status_choices': Demanda.STATUS_CHOICES,
         }
+    )
+
+@login_required
+def nova_demanda(request):
+
+    if request.user.setor is None:
+        messages.error(
+            request,
+            'Seu usuário não possui um setor cadastrado. Entre em contato com o administrador.'
+        )
+
+        return redirect('lista_demandas')
+
+    if request.method == 'POST':
+        form = DemandaForm(request.POST)
+
+        if form.is_valid():
+            demanda = form.save(commit=False)
+
+            demanda.solicitante = request.user
+            demanda.setor = request.user.setor
+
+            demanda.save()
+
+            messages.success(
+                request,
+                'Demanda criada com sucesso.'
+            )
+
+
+            return redirect('lista_demandas')
+
+    else:
+        form = DemandaForm()
+
+    return render(
+        request,
+        'demandas/nova_demanda.html',
+        {'form': form}
     )

@@ -529,6 +529,166 @@ aside nav {
 }
 
 
+/* =========================
+   FORMULÁRIO - NOVA DEMANDA
+========================= */
+
+.card-formulario {
+    width: 100%;
+    max-width: 850px;
+
+    padding: 24px;
+
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+
+    box-sizing: border-box;
+}
+
+.formulario-demanda {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.grupo-campo label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.grupo-campo input,
+.grupo-campo select,
+.grupo-campo textarea {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    background-color: var(--cor-card);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+    box-sizing: border-box;
+}
+
+.grupo-campo input:focus,
+.grupo-campo select:focus,
+.grupo-campo textarea:focus {
+    border-color: var(--cor-primaria);
+}
+
+.grupo-campo textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* Observação ocupa a largura inteira */
+.grupo-campo:has(textarea) {
+    grid-column: 1 / -1;
+}
+
+.erro-campo {
+    font-size: 12px;
+    color: var(--cor-erro);
+}
+
+.erro-campo ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+
+/* BOTÕES */
+
+.acoes-formulario {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    padding-top: 4px;
+}
+
+.botao-cancelar,
+.botao-salvar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    height: 42px;
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.botao-cancelar {
+    background-color: var(--cor-card);
+    color: var(--cor-texto);
+
+    border: 1px solid var(--cor-borda);
+}
+
+.botao-cancelar:hover {
+    background-color: var(--cor-fundo-secundario);
+}
+
+.botao-salvar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+
+    border: none;
+    cursor: pointer;
+}
+
+.botao-salvar:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+
+
+.mensagens-sistema {
+    margin-bottom: 20px;
+}
+
+.mensagem {
+    padding: 12px 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.mensagem-error {
+    color: var(--cor-erro);
+    background-color: var(--cor-erro-fundo);
+}
+
+.mensagem-success {
+    color: var(--cor-sucesso);
+    background-color: var(--cor-sucesso-fundo);
+}
 
 
 /* =========================
@@ -669,6 +829,32 @@ aside nav {
 
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .card-formulario {
+    padding: 18px;
+    }
+
+    .formulario-demanda {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .grupo-campo:has(textarea) {
+        grid-column: 1;
+    }
+
+    .acoes-formulario {
+        grid-column: 1;
+
+        flex-direction: column-reverse;
+
+        width: 100%;
+    }
+
+    .botao-cancelar,
+    .botao-salvar {
+        width: 100%;
     }
 }
 

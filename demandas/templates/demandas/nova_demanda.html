@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div class="cabecalho-pagina">
+    <div>
+        <h1>Nova Demanda</h1>
+        <p>Preencha as informações para registrar uma nova demanda.</p>
+    </div>
+</div>
+
+<div class="card-formulario">
+
+    <form method="post" class="formulario-demanda">
+
+        {% csrf_token %}
+
+        <div class="grupo-campo">
+            <label for="{{ form.cliente.id_for_label }}">
+                Cliente
+            </label>
+
+            {{ form.cliente }}
+
+            {% if form.cliente.errors %}
+                <div class="erro-campo">
+                    {{ form.cliente.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="grupo-campo">
+            <label for="{{ form.telefone.id_for_label }}">
+                Telefone
+            </label>
+
+            {{ form.telefone }}
+
+            {% if form.telefone.errors %}
+                <div class="erro-campo">
+                    {{ form.telefone.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="grupo-campo">
+            <label for="{{ form.categoria.id_for_label }}">
+                Categoria
+            </label>
+
+            {{ form.categoria }}
+
+            {% if form.categoria.errors %}
+                <div class="erro-campo">
+                    {{ form.categoria.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="grupo-campo">
+            <label for="{{ form.observacao.id_for_label }}">
+                Observação
+            </label>
+
+            {{ form.observacao }}
+
+            {% if form.observacao.errors %}
+                <div class="erro-campo">
+                    {{ form.observacao.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+
+        <div class="acoes-formulario">
+
+            <a href="{% url 'lista_demandas' %}" class="botao-cancelar">
+                Cancelar
+            </a>
+
+            <button type="submit" class="botao-salvar">
+                <i class="bi bi-check-lg"></i>
+                Criar Demanda
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
